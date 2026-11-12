@@ -1,0 +1,4 @@
+INSERT INTO finance_account (id,name,type,balance,created_at,updated_at,deleted_at,user_id)
+VALUES (1,'Banco do Brasil','Banco',12000.00,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP,NULL,1);
+
+INSERT INTO finance_account VALUES (2,'Rico','Corretora',25000.00,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP,NULL,1);

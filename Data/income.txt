@@ -1,0 +1,38 @@
+INSERT INTO finance_income
+VALUES (1, 'Caixa', 'Fixed', 10547.00, '2026-11-15', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL, 1, 1, 'Salary');
+
+INSERT INTO finance_income 
+VALUES (2, 'Bar do Gil', 'Fixed', 7005.00, '2026-11-18', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL, 1, 1, 'Freelance');
+
+INSERT INTO finance_income (id, origin, type, amount, date, created_at, updated_at, deleted_at, account_id, user_id, category)
+VALUES (3, 'Caixa', 'Fixed', 10547.00, '2026-10-15', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL, 1, 1, 'Salary');
+
+INSERT INTO finance_income 
+VALUES (4, 'Bar do Gil', 'Fixed', 7005.00, '2026-10-18', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL, 1, 1, 'Freelance');
+
+INSERT INTO finance_income VALUES (5, 'Caixa', 'Fixed', 10547.00, '2026-09-15', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL, 1, 1, 'Salary');
+
+INSERT INTO finance_income 
+VALUES (6, 'Bar do Gil', 'Fixed', 7005.00, '2026-09-18', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL, 1, 1, 'Freelance');
+
+
+INSERT INTO finance_income VALUES (7, 'Caixa', 'Fixed', 10547.00, '2026-08-15', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL, 1, 1, 'Salary');
+
+INSERT INTO finance_income 
+VALUES (8, 'Bar do Gil', 'Fixed', 7005.00, '2026-08-18', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL, 1, 1, 'Freelance');
+
+
+INSERT INTO finance_income VALUES (9, 'Caixa', 'Fixed', 10547.00, '2026-07-15', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL, 1, 1, 'Salary');
+
+INSERT INTO finance_income 
+VALUES (10, 'Bar do Gil', 'Fixed', 7005.00, '2026-07-18', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL, 1, 1, 'Freelance');
+
+INSERT INTO finance_income VALUES (11, 'Caixa', 'Fixed', 10547.00, '2026-06-15', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL, 1, 1, 'Salary');
+
+INSERT INTO finance_income 
+VALUES (12, 'Bar do Gil', 'Fixed', 7005.00, '2026-06-18', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL, 1, 1, 'Freelance');
+
+INSERT INTO finance_income VALUES (13, 'Caixa', 'Fixed', 10547.00, '2026-05-15', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL, 1, 1, 'Salary');
+
+INSERT INTO finance_income 
+VALUES (14, 'Bar do Gil', 'Fixed', 7005.00, '2026-05-18', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL, 1, 1, 'Freelance');

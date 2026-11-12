@@ -1,0 +1,67 @@
+services:
+  postgres_meufinanceiro:
+    image: postgres:16
+    container_name: meufinanceiro_postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: meufinanceiro_postgres
+      POSTGRES_USER: Rodrigo
+      POSTGRES_PASSWORD: "475869"
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test:
+        ["CMD-SHELL", "pg_isready -U Rodrigo -d meuFinanceiro_Backend_postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  backend_meufinanceiro:
+    build: .
+    container_name: meufinanceiro_backend
+    restart: unless-stopped
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/app
+    ports:
+      - "8000:8000"
+    environment:
+      DB_NAME: meufinanceiro_postgres
+      DB_USER: Rodrigo
+      DB_PASSWORD: "475869"
+      DB_HOST: postgres_meufinanceiro
+      DB_PORT: 5432
+    depends_on:
+      postgres_meufinanceiro:
+        condition: service_healthy
+
+  #  pgadmin_meufinanceiro:
+  #    image: dpage/pgadmin4:latest
+  #    container_name: meufinanceiro_pgadmin
+  #    restart: unless-stopped
+  #    environment:
+  #      PGADMIN_DEFAULT_EMAIL: admin@meufinanceiro.com
+  #      PGADMIN_DEFAULT_PASSWORD: "admin123"
+  #    ports:
+  #      - "5050:80"
+  #    volumes:
+  #      - pgadmin_data:/var/lib/pgadmin
+  #    depends_on:
+  #      - postgres_meufinanceiro
+
+  adminer_meufinanceiro:
+    container_name: meufinanceiro_adminer
+    image: adminer:4.8.1
+    restart: unless-stopped
+    environment:
+      ADMINER_DEFAULT_SERVER: postgres_meufinanceiro
+    ports:
+      - "13310:8080"
+    depends_on:
+      - postgres_meufinanceiro
+
+volumes:
+  postgres_data:
+  #pgadmin_data:
