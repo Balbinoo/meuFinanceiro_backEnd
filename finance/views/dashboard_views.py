@@ -179,8 +179,8 @@ def monthly_summary(request):
 
         data.append({
             "label": f"{month:02d}",
-            "Income": income_dict.get((year, month), 0),
-            "Expenses": expense_dict.get((year, month), 0),
+            "income": income_dict.get((year, month), 0),
+            "expense": expense_dict.get((year, month), 0),
         })
 
     return Response(data)
