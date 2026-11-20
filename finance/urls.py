@@ -25,9 +25,6 @@ urlpatterns = [
     path("dashboard/total_accounts/",total_accounts,name="total_accounts"),
     path("dashboard/user_name/",user_name,name="user_name"),
 
-
-
-    
     path("",include(router.urls)),
 ]
 

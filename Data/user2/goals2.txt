@@ -1,0 +1,5 @@
+INSERT INTO finance_goal (id,name,saved,objective,created_at,updated_at,deleted_at,user_id) 
+
+INSERT INTO finance_goal (id,name,saved,objective,created_at,updated_at,deleted_at,user_id) VALUES (3, 'Casa nova', 7591.00, 14000.00,CURRENT_TIMESTAMP, CURRENT_TIMESTAMP,NULL,2 );
+
+INSERT INTO finance_goal VALUES (4, 'Viagem para Paris', 5000.00, 50000.00,CURRENT_TIMESTAMP, CURRENT_TIMESTAMP,NULL,2 );

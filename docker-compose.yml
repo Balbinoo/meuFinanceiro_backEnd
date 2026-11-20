@@ -12,8 +12,7 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data
     healthcheck:
-      test:
-        ["CMD-SHELL", "pg_isready -U Rodrigo -d meuFinanceiro_Backend_postgres"]
+      test: ["CMD-SHELL", "pg_isready -U Rodrigo -d meufinanceiro_postgres"]
       interval: 5s
       timeout: 5s
       retries: 5
@@ -36,20 +35,6 @@ services:
     depends_on:
       postgres_meufinanceiro:
         condition: service_healthy
-
-  #  pgadmin_meufinanceiro:
-  #    image: dpage/pgadmin4:latest
-  #    container_name: meufinanceiro_pgadmin
-  #    restart: unless-stopped
-  #    environment:
-  #      PGADMIN_DEFAULT_EMAIL: admin@meufinanceiro.com
-  #      PGADMIN_DEFAULT_PASSWORD: "admin123"
-  #    ports:
-  #      - "5050:80"
-  #    volumes:
-  #      - pgadmin_data:/var/lib/pgadmin
-  #    depends_on:
-  #      - postgres_meufinanceiro
 
   adminer_meufinanceiro:
     container_name: meufinanceiro_adminer

@@ -1,0 +1,8 @@
+INSERT INTO finance_account (id,name,type,balance,created_at,updated_at,deleted_at,user_id)
+
+INSERT INTO finance_account (id,name,type,balance,created_at,updated_at,deleted_at,user_id)
+VALUES (3,'Caixa','Banco',40000.00,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP,NULL,2);
+
+INSERT INTO finance_account VALUES (4,'Nubank','Corretora',30000.00,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP,NULL,2);
+
+INSERT INTO finance_account VALUES (5,'Inter','Banco',10000.00,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP,NULL,2);

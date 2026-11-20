@@ -1,0 +1,19 @@
+INSERT INTO finance_income (id, origin, type, amount, date, created_at, updated_at, deleted_at, account_id, user_id, category)
+
+INSERT INTO finance_income
+(id, origin, type, amount, date, created_at, updated_at, deleted_at, account_id, user_id, category)
+VALUES
+(15, 'Caixa', 'Fixed', 10547.00, '2026-11-15', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL, 3, 2, 'Salary'),
+(16, 'Bar do Gil', 'Fixed', 7005.00, '2026-11-18', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL, 4, 2, 'Freelance'),
+(17, 'Caixa', 'Fixed', 10500.00, '2026-10-15', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL, 3, 2, 'Salary'),
+(18, 'Bar do Gil', 'Fixed', 7005.00, '2026-10-18', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL, 4, 2, 'Freelance'),
+(19, 'Caixa', 'Fixed', 10547.00, '2026-09-15', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL, 3, 2, 'Salary'),
+(20, 'Bar do Gil', 'Fixed', 7005.00, '2026-09-18', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL, 4, 2, 'Freelance'),
+(21, 'Caixa', 'Fixed', 10547.00, '2026-08-15', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL, 3, 2, 'Salary'),
+(22, 'Bar do Gil', 'Fixed', 7005.00, '2026-08-18', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL, 4, 2, 'Freelance'),
+(23, 'Caixa', 'Fixed', 10547.00, '2026-07-15', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL, 3, 2, 'Salary'),
+(24, 'Bar do Gil', 'Fixed', 7005.00, '2026-07-18', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL, 4, 2, 'Freelance'),
+(25, 'Caixa', 'Fixed', 10547.00, '2026-06-15', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL, 3, 2, 'Salary'),
+(26, 'Bar do Gil', 'Fixed', 7005.00, '2026-06-18', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL, 4, 2, 'Freelance'),
+(27, 'Caixa', 'Fixed', 10547.00, '2026-05-15', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL, 3, 2, 'Salary'),
+(28, 'Bar do Gil', 'Fixed', 7005.00, '2026-05-18', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL, 4, 2, 'Freelance');
