@@ -3,83 +3,83 @@ Categories = "Food", "Transport", "Housing", "Health","Education","Entertainment
     Types = "Fixed"or "Variable"
 
 
-INSERT INTO finance_expense  (id,store,name,category,type,date,amount,created_at,updated_at,deleted_at,account_id,user_id) VALUES (1, 'Riachuelo', 'calças', 'Shopping', 'Variable', '2026-09-12', 452.00, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL,1,1);
+INSERT INTO finance_expense  (id,store,name,category,type,date,amount,created_at,updated_at,deleted_at,account_id,user_id) VALUES (1, 'Riachuelo', 'calças', 'Shopping', 'Variable', '2026-09-12', 452.00, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL,2,1);
 
-INSERT INTO finance_expense VALUES (2, 'Nossa casa', 'bolo', 'Food', 'Variable', '2026-09-13', 12.00, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL,1,1);
+INSERT INTO finance_expense VALUES (2, 'Nossa casa', 'bolo', 'Food', 'Variable', '2026-09-13', 12.00, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL,2,1);
 
-INSERT INTO finance_expense VALUES (3, 'Carro', 'IPVA', 'Transport', 'Fixed', '2026-09-13', 257.00, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL,1,1);
+INSERT INTO finance_expense VALUES (3, 'Carro', 'IPVA', 'Transport', 'Fixed', '2026-09-13', 257.00, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL,2,1);
 
-INSERT INTO finance_expense VALUES (4, 'Carrefour', 'Compras do supermercado', 'Food', 'Variable', '2026-10-02', 385.90, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL, 1, 1);
+INSERT INTO finance_expense VALUES (4, 'Carrefour', 'Compras do supermercado', 'Food', 'Variable', '2026-10-02', 385.90, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL, 2, 1);
 
-INSERT INTO finance_expense VALUES (5, 'Uber', 'Corridas durante a semana', 'Transport', 'Variable', '2026-10-04', 78.50, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL, 1, 1);
+INSERT INTO finance_expense VALUES (5, 'Uber', 'Corridas durante a semana', 'Transport', 'Variable', '2026-10-04', 78.50, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL, 2, 1);
 
-INSERT INTO finance_expense VALUES (6, 'Imobiliária Central', 'Aluguel mensal', 'Housing', 'Fixed', '2026-10-05', 1450.00, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL, 1, 1);
+INSERT INTO finance_expense VALUES (6, 'Imobiliária Central', 'Aluguel mensal', 'Housing', 'Fixed', '2026-10-05', 1450.00, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL, 2, 1);
 
-INSERT INTO finance_expense VALUES (7, 'Farmácia Pague Menos', 'Medicamentos', 'Health', 'Variable', '2026-10-08', 126.75, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL, 1, 1);
+INSERT INTO finance_expense VALUES (7, 'Farmácia Pague Menos', 'Medicamentos', 'Health', 'Variable', '2026-10-08', 126.75, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL, 2, 1);
 
-INSERT INTO finance_expense VALUES (8, 'Udemy', 'Curso de programação', 'Education', 'Fixed', '2026-10-11', 89.90, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL, 1, 1);
+INSERT INTO finance_expense VALUES (8, 'Udemy', 'Curso de programação', 'Education', 'Fixed', '2026-10-11', 89.90, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL, 2, 1);
 
-INSERT INTO finance_expense VALUES (9, 'Cinemark', 'Ingressos de cinema', 'Entertainment', 'Variable', '2026-10-14', 65.00, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL, 1, 1);
+INSERT INTO finance_expense VALUES (9, 'Cinemark', 'Ingressos de cinema', 'Entertainment', 'Variable', '2026-10-14', 65.00, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL, 2, 1);
 
-INSERT INTO finance_expense VALUES (10, 'Riachuelo', 'Compra de roupas', 'Shopping', 'Variable', '2026-10-17', 279.90, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL, 1, 1);
+INSERT INTO finance_expense VALUES (10, 'Riachuelo', 'Compra de roupas', 'Shopping', 'Variable', '2026-10-17', 279.90, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL, 2, 1);
 
-INSERT INTO finance_expense VALUES (11, 'Enel', 'Conta de energia elétrica', 'Housing', 'Fixed', '2026-10-20', 198.45, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL, 1, 1);
+INSERT INTO finance_expense VALUES (11, 'Enel', 'Conta de energia elétrica', 'Housing', 'Fixed', '2026-10-20', 198.45, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL, 2, 1);
 
-INSERT INTO finance_expense VALUES (12, 'Posto Shell', 'Abastecimento de combustível', 'Transport', 'Variable', '2026-10-24', 250.00, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL, 1, 1);
+INSERT INTO finance_expense VALUES (12, 'Posto Shell', 'Abastecimento de combustível', 'Transport', 'Variable', '2026-10-24', 250.00, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL, 2, 1);
 
-INSERT INTO finance_expense VALUES (13, 'Restaurante Sabor Caseiro', 'Almoço com a família', 'Food', 'Variable', '2026-10-28', 112.50, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL, 1, 1);
+INSERT INTO finance_expense VALUES (13, 'Restaurante Sabor Caseiro', 'Almoço com a família', 'Food', 'Variable', '2026-10-28', 112.50, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL, 2, 1);
 
 ######################
 
-INSERT INTO finance_expense VALUES (14, 'Atacadão', 'Compras do mês', 'Food', 'Variable', '2026-09-02', 420.50, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL, 1, 1);
+INSERT INTO finance_expense VALUES (14, 'Atacadão', 'Compras do mês', 'Food', 'Variable', '2026-09-02', 420.50, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL, 2, 1);
 
-INSERT INTO finance_expense VALUES (15, 'Uber', 'Transporte para o trabalho', 'Transport', 'Variable', '2026-09-04', 95.00, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL, 1, 1);
+INSERT INTO finance_expense VALUES (15, 'Uber', 'Transporte para o trabalho', 'Transport', 'Variable', '2026-09-04', 95.00, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL, 2, 1);
 
-INSERT INTO finance_expense VALUES (16, 'Imobiliária Central', 'Aluguel mensal', 'Housing', 'Fixed', '2026-09-05', 1450.00, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL, 1, 1);
+INSERT INTO finance_expense VALUES (16, 'Imobiliária Central', 'Aluguel mensal', 'Housing', 'Fixed', '2026-09-05', 1450.00, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL, 2, 1);
 
-INSERT INTO finance_expense VALUES (17, 'Drogasil', 'Compra de medicamentos', 'Health', 'Variable', '2026-09-08', 87.90, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL, 1, 1);
+INSERT INTO finance_expense VALUES (17, 'Drogasil', 'Compra de medicamentos', 'Health', 'Variable', '2026-09-08', 87.90, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL, 2, 1);
 
-INSERT INTO finance_expense VALUES (18, 'Alura', 'Mensalidade do curso', 'Education', 'Fixed', '2026-09-10', 99.90, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL, 1, 1);
+INSERT INTO finance_expense VALUES (18, 'Alura', 'Mensalidade do curso', 'Education', 'Fixed', '2026-09-10', 99.90, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL, 2, 1);
 
-INSERT INTO finance_expense VALUES (19, 'Netflix', 'Assinatura mensal', 'Entertainment', 'Fixed', '2026-09-13', 39.90, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL, 1, 1);
+INSERT INTO finance_expense VALUES (19, 'Netflix', 'Assinatura mensal', 'Entertainment', 'Fixed', '2026-09-13', 39.90, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL, 2, 1);
 
-INSERT INTO finance_expense VALUES (20, 'Riachuelo', 'Compra de camisetas', 'Shopping', 'Variable', '2026-09-16', 189.90, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL, 1, 1);
+INSERT INTO finance_expense VALUES (20, 'Riachuelo', 'Compra de camisetas', 'Shopping', 'Variable', '2026-09-16', 189.90, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL, 2, 1);
 
-INSERT INTO finance_expense VALUES (21, 'Enel', 'Conta de energia', 'Housing', 'Fixed', '2026-09-19', 175.80, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL, 1, 1);
+INSERT INTO finance_expense VALUES (21, 'Enel', 'Conta de energia', 'Housing', 'Fixed', '2026-09-19', 175.80, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL, 2, 1);
 
-INSERT INTO finance_expense VALUES (22, 'Posto Shell', 'Abastecimento do carro', 'Transport', 'Variable', '2026-09-23', 230.00, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL, 1, 1);
+INSERT INTO finance_expense VALUES (22, 'Posto Shell', 'Abastecimento do carro', 'Transport', 'Variable', '2026-09-23', 230.00, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL, 2, 1);
 
-INSERT INTO finance_expense VALUES (23, 'Restaurante Sabor Caseiro', 'Almoço de domingo', 'Food', 'Variable', '2026-09-27', 75.50, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL, 1, 1);
+INSERT INTO finance_expense VALUES (23, 'Restaurante Sabor Caseiro', 'Almoço de domingo', 'Food', 'Variable', '2026-09-27', 75.50, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL, 2, 1);
 
 ################
 
-INSERT INTO finance_expense VALUES (24, 'Supermercado BH', 'Compras de supermercado', 'Food', 'Variable', '2026-08-02', 315.80, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL, 1, 1);
+INSERT INTO finance_expense VALUES (24, 'Supermercado BH', 'Compras de supermercado', 'Food', 'Variable', '2026-08-02', 315.80, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL, 2, 1);
 
-INSERT INTO finance_expense VALUES (25, '99 Taxi', 'Corridas durante a semana', 'Transport', 'Variable', '2026-08-04', 68.50, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL, 1, 1);
+INSERT INTO finance_expense VALUES (25, '99 Taxi', 'Corridas durante a semana', 'Transport', 'Variable', '2026-08-04', 68.50, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL, 2, 1);
 
-INSERT INTO finance_expense VALUES (26, 'Imobiliária Central', 'Aluguel mensal', 'Housing', 'Fixed', '2026-08-05', 1450.00, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL, 1, 1);
+INSERT INTO finance_expense VALUES (26, 'Imobiliária Central', 'Aluguel mensal', 'Housing', 'Fixed', '2026-08-05', 1450.00, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL, 2, 1);
 
-INSERT INTO finance_expense VALUES (27, 'Farmácia Pague Menos', 'Compra de vitaminas e medicamentos', 'Health', 'Variable', '2026-08-08', 115.90, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL, 1, 1);
+INSERT INTO finance_expense VALUES (27, 'Farmácia Pague Menos', 'Compra de vitaminas e medicamentos', 'Health', 'Variable', '2026-08-08', 115.90, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL, 2, 1);
 
-INSERT INTO finance_expense VALUES (28, 'Udemy', 'Curso de desenvolvimento web', 'Education', 'Variable', '2026-08-11', 79.90, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL, 1, 1);
+INSERT INTO finance_expense VALUES (28, 'Udemy', 'Curso de desenvolvimento web', 'Education', 'Variable', '2026-08-11', 79.90, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL, 2, 1);
 
-INSERT INTO finance_expense VALUES (29, 'Spotify', 'Assinatura mensal', 'Entertainment', 'Fixed', '2026-08-14', 21.90, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL, 1, 1);
+INSERT INTO finance_expense VALUES (29, 'Spotify', 'Assinatura mensal', 'Entertainment', 'Fixed', '2026-08-14', 21.90, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL, 2, 1);
 
-INSERT INTO finance_expense VALUES (30, 'Renner', 'Compra de calçados', 'Shopping', 'Variable', '2026-08-17', 249.90, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL, 1, 1);
+INSERT INTO finance_expense VALUES (30, 'Renner', 'Compra de calçados', 'Shopping', 'Variable', '2026-08-17', 249.90, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL, 2, 1);
 
-INSERT INTO finance_expense VALUES (31, 'Enel', 'Conta de energia elétrica', 'Housing', 'Fixed', '2026-08-20', 185.60, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL, 1, 1);
+INSERT INTO finance_expense VALUES (31, 'Enel', 'Conta de energia elétrica', 'Housing', 'Fixed', '2026-08-20', 185.60, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL, 2, 1);
 
-INSERT INTO finance_expense VALUES (32, 'Posto Ipiranga', 'Abastecimento de combustível', 'Transport', 'Variable', '2026-08-24', 220.00, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL, 1, 1);
+INSERT INTO finance_expense VALUES (32, 'Posto Ipiranga', 'Abastecimento de combustível', 'Transport', 'Variable', '2026-08-24', 220.00, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL, 2, 1);
 
-INSERT INTO finance_expense VALUES (33, 'Restaurante Sabor Caseiro', 'Jantar com amigos', 'Food', 'Variable', '2026-08-28', 98.50, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL, 1, 1);
+INSERT INTO finance_expense VALUES (33, 'Restaurante Sabor Caseiro', 'Jantar com amigos', 'Food', 'Variable', '2026-08-28', 98.50, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL, 2, 1);
 
 ######################
 
-INSERT INTO finance_expense VALUES (34, 'Carrefour', 'Compras do supermercado', 'Food', 'Variable', '2026-07-02', 368.90, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL, 1, 1);
+INSERT INTO finance_expense VALUES (34, 'Carrefour', 'Compras do supermercado', 'Food', 'Variable', '2026-07-02', 368.90, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL, 2, 1);
 
-INSERT INTO finance_expense VALUES (35, 'Uber', 'Transporte para o trabalho', 'Transport', 'Variable', '2026-07-04', 82.50, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL, 1, 1);
+INSERT INTO finance_expense VALUES (35, 'Uber', 'Transporte para o trabalho', 'Transport', 'Variable', '2026-07-04', 82.50, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL, 2, 1);
 
-INSERT INTO finance_expense VALUES (36, 'Imobiliária Central', 'Aluguel mensal', 'Housing', 'Fixed', '2026-07-05', 1450.00, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL, 1, 1);
+INSERT INTO finance_expense VALUES (36, 'Imobiliária Central', 'Aluguel mensal', 'Housing', 'Fixed', '2026-07-05', 1450.00, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL, 2, 1);
 
 INSERT INTO finance_expense VALUES (37, 'Drogasil', 'Consulta médica', 'Health', 'Variable', '2026-07-08', 180.00, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL, 1, 1);
 
