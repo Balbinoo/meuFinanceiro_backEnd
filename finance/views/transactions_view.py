@@ -21,6 +21,7 @@ def getAllTransactions(request):
     search = request.query_params.get("search")
     ordering = request.query_params.get("ordering")
     transaction_type = request.query_params.get("transaction_type")
+    periods = request.query_params.get("periods")
 
     incomes = (
         Income.objects
@@ -81,10 +82,21 @@ def getAllTransactions(request):
             expenses = expenses.filter(account__name=account)
 
     if period:
-        month = datetime.strptime(period, "%B").month
-        year = "2026"
-        incomes = incomes.filter(date__year=year, date__month=month)
-        expenses = expenses.filter(date__year=year, date__month=month)
+        try:
+            selected_date = datetime.strptime(period, "%B %Y")
+            incomes = incomes.filter(
+                date__year=selected_date.year,
+                date__month=selected_date.month
+            )
+            expenses = expenses.filter(
+                date__year=selected_date.year,
+                date__month=selected_date.month
+            )
+        except ValueError:
+            return Response(
+                {"error": "Invalid period. Use Month YYYY."},
+                status=400
+            )
 
     if search:
         incomes = incomes.filter(
@@ -104,6 +116,28 @@ def getAllTransactions(request):
 
     elif transaction_type == "expense":
             incomes = incomes.none()
+
+    if periods:
+        period_filters = Q()
+        try:
+            for selected_period in periods.split(","):
+                selected_date = datetime.strptime(
+                    selected_period.strip(),
+                    "%B %Y"
+               )
+
+                period_filters |= Q(
+                   date__year=selected_date.year,
+                   date__month=selected_date.month
+               )
+
+            incomes = incomes.filter(period_filters)
+            expenses = expenses.filter(period_filters)
+        except ValueError:
+            return Response(
+                {"error": "Invalid period. Use Month YYYY."},
+                status=400
+            )
 
     ordering_options = {
          "newest": "-date",
@@ -144,7 +178,7 @@ def get_accounts_list(request):
 @permission_classes([IsAuthenticated])
 def get_last_five_months(request):
     month_names = (
-        "January", "February", "March", "April", "May", "June","July", "August","September","October", "November", "December",
+        "January 2026", "February 2026", "March 2026", "April 2026", "May 2026", "June 2026","July 2026", "August 2026","September 2026","October 2026", "November 2026", "December 2026",
     )
 
     today = timezone.localdate()
