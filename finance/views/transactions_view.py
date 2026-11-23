@@ -18,6 +18,9 @@ def getAllTransactions(request):
     category = request.query_params.get("category")
     account = request.query_params.get("account")
     period = request.query_params.get("period")
+    search = request.query_params.get("search")
+    ordering = request.query_params.get("ordering")
+    transaction_type = request.query_params.get("transaction_type")
 
     incomes = (
         Income.objects
@@ -83,10 +86,38 @@ def getAllTransactions(request):
         incomes = incomes.filter(date__year=year, date__month=month)
         expenses = expenses.filter(date__year=year, date__month=month)
 
+    if search:
+        incomes = incomes.filter(
+             Q(origin__icontains=search) |
+             Q(category__icontains=search) |
+             Q(account__name__icontains=search)
+        )
+        expenses = expenses.filter(
+            Q(store__icontains=search) |
+            Q(name__icontains=search) |
+            Q(category__icontains=search) |
+            Q(account__name__icontains=search)
+        )
+
+    if transaction_type == "income":
+            expenses = expenses.none()
+
+    elif transaction_type == "expense":
+            incomes = incomes.none()
+
+    ordering_options = {
+         "newest": "-date",
+         "oldest": "date",
+         "↑ Price": "-amount",
+         "↓ Price": "amount"
+
+    }
+
+
     transactions = incomes.union(
         expenses,
         all=True
-    ).order_by("-date")
+    ).order_by(ordering_options.get(ordering,"-date"))
 
     paginator = PageNumberPagination()
     paginator.page_size = 10
