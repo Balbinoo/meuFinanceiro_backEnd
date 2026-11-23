@@ -1,14 +1,24 @@
+import datetime
+
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
-from django.db.models import F,Value, CharField
+from django.db.models import Q, F, Value, CharField
 from rest_framework.pagination import PageNumberPagination
 from rest_framework.decorators import api_view, permission_classes
 from ..models import Account, Income, Expense
 from django.utils import timezone
+from datetime import datetime
+
+
 
 @api_view(["GET"])
 @permission_classes([IsAuthenticated])
 def getAllTransactions(request):
+
+    category = request.query_params.get("category")
+    account = request.query_params.get("account")
+    period = request.query_params.get("period")
+
     incomes = (
         Income.objects
         .filter(
@@ -17,11 +27,11 @@ def getAllTransactions(request):
         )
         .order_by()
         .annotate(
-            transaction_type = Value(
+            transaction_type=Value(
                 "income",
-                output_field = CharField()
+                output_field=CharField()
             ),
-            description = F("origin")
+            description=F("origin"),
         )
         .values(
             "transaction_type",
@@ -30,14 +40,15 @@ def getAllTransactions(request):
             "type",
             "date",
             "amount",
-            "account_id",
+            account_name=F("account__name"),
         )
-    )    
+    )
+
     expenses = (
         Expense.objects
         .filter(
             user=request.user,
-            deleted_at__isnull=True
+            deleted_at__isnull=True,
         )
         .order_by()
         .annotate(
@@ -45,7 +56,7 @@ def getAllTransactions(request):
                 "expense",
                 output_field=CharField()
             ),
-            description=F("store")
+            description=F("store"),
         )
         .values(
             "transaction_type",
@@ -54,17 +65,29 @@ def getAllTransactions(request):
             "type",
             "date",
             "amount",
-            "account_id",
+            account_name=F("account__name"),
         )
     )
-    #combina incomes e expenses
+
+    if category:
+            incomes = incomes.filter(category=category)
+            expenses = expenses.filter(category=category)
+
+    if account:
+            incomes = incomes.filter(account__name=account)
+            expenses = expenses.filter(account__name=account)
+
+    if period:
+        month = datetime.strptime(period, "%B").month
+        year = "2026"
+        incomes = incomes.filter(date__year=year, date__month=month)
+        expenses = expenses.filter(date__year=year, date__month=month)
+
     transactions = incomes.union(
         expenses,
         all=True
-    ).order_by(
-        "-date",
-    )
-    #pagination
+    ).order_by("-date")
+
     paginator = PageNumberPagination()
     paginator.page_size = 10
 
@@ -72,6 +95,7 @@ def getAllTransactions(request):
         transactions,
         request
     )
+
     return paginator.get_paginated_response(page)
 
 @api_view(["GET"])
@@ -106,7 +130,7 @@ def get_last_five_months(request):
             month_year -= 1
 
         last_five_months.append(month_names[month_index - 1])
-
+        
     return Response({"last_five_months": last_five_months[::-1]})
 
 @api_view(["GET"])
