@@ -2,7 +2,8 @@ from rest_framework.routers import DefaultRouter
 from django.urls import path, include
 from finance.views.dashboard_views import last_monthly_expense, last_monthly_income
 from .views._init_ import ExpenseViewSet, IncomeViewSet, GoalViewSet, AccountViewSet, UserViewSet, RegisterView, total_balance, monthly_income, monthly_expense, monthly_summary, expense_categories, recent_transactions, goals,total_accounts,user_name
-from finance.views.transactions_view import  get_all_categories, getAllTransactions, get_accounts_list,get_last_five_months
+from finance.views.transactions_view import  get_all_categories, getAllTransactions, get_accounts_list,get_last_five_months,getIncomeFiltered, getExpenseFiltered
+
 
 router = DefaultRouter()
 router.register("expenses", ExpenseViewSet, basename="expense")
@@ -31,8 +32,7 @@ urlpatterns = [
     path("transactions/all/",getAllTransactions,name="AllTransactions"),
     path("transactions/accounts_list/",get_accounts_list,name="accounts_list"),
     path("transactions/last_five_months/", get_last_five_months,name="get_last_five_months"),
-    path("transactions/all_categories/", get_all_categories,name="all_categories")
+    path("transactions/all_categories/", get_all_categories,name="all_categories"),
+    path("transactions/income_filtered/",getIncomeFiltered,name="getIncomeFiltered"),
+    path("transactions/expense_filtered/",getExpenseFiltered,name="getExpenseFiltered"),
 ]
-
-# it created the whole set of requests from this
-#urlpatterns = router.urls

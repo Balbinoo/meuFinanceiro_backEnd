@@ -1,15 +1,102 @@
 import datetime
-
+from datetime import datetime
+from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
-from django.db.models import Q, F, Value, CharField
 from rest_framework.pagination import PageNumberPagination
-from rest_framework.decorators import api_view, permission_classes
+from django.db.models import Q, F, Value, CharField, Sum, Count
 from ..models import Account, Income, Expense
 from django.utils import timezone
-from datetime import datetime
+
+@api_view(["GET"])
+@permission_classes([IsAuthenticated])
+def getIncomeFiltered(request):
+
+    periods = request.query_params.get("periods")
+
+    incomes = Income.objects.filter(
+        user=request.user,
+        deleted_at__isnull=True
+    )
+
+    if periods:
+        period_filters = Q()
+
+        try:
+            for selected_period in periods.split(","):
+                selected_date = datetime.strptime(
+                    selected_period.strip(),
+                    "%B %Y"
+                )
+
+                period_filters |= Q(
+                    date__year=selected_date.year,
+                    date__month=selected_date.month
+                )
+
+            incomes = incomes.filter(period_filters)
+
+        except ValueError:
+            return Response(
+                {"error": "Invalid period. Use Month YYYY."},
+                status=400
+            )
+
+    totals = incomes.aggregate(
+        total=Sum("amount"),
+        counted=Count("amount")
+    )
+
+    return Response({
+        "total_income": totals["total"] or 0,
+        "counted": totals["counted"]
+    })
 
 
+
+@api_view(["GET"])
+@permission_classes([IsAuthenticated])
+def getExpenseFiltered(request):
+
+    periods = request.query_params.get("periods")
+
+    expenses = Expense.objects.filter(
+        user=request.user,
+        deleted_at__isnull=True
+    )
+
+    if periods:
+        period_filters = Q()
+
+        try:
+            for selected_period in periods.split(","):
+                selected_date = datetime.strptime(
+                    selected_period.strip(),
+                    "%B %Y"
+                )
+
+                period_filters |= Q(
+                    date__year=selected_date.year,
+                    date__month=selected_date.month
+                )
+
+            expenses = expenses.filter(period_filters)
+
+        except ValueError:
+            return Response(
+                {"error": "Invalid period. Use Month YYYY."},
+                status=400
+            )
+
+    totals = expenses.aggregate(
+        total=Sum("amount"),
+        counted=Count("amount")
+    )
+
+    return Response({
+        "total_expense": totals["total"] or 0,
+        "counted": totals["counted"]
+    })
 
 @api_view(["GET"])
 @permission_classes([IsAuthenticated])
