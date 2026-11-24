@@ -1,9 +1,11 @@
 from rest_framework.routers import DefaultRouter
+from rest_framework_simplejwt.views import (
+    TokenObtainPairView, TokenRefreshView,
+)
 from django.urls import path, include
 from finance.views.dashboard_views import last_monthly_expense, last_monthly_income
 from .views._init_ import ExpenseViewSet, IncomeViewSet, GoalViewSet, AccountViewSet, UserViewSet, RegisterView, total_balance, monthly_income, monthly_expense, monthly_summary, expense_categories, recent_transactions, goals,total_accounts,user_name
 from finance.views.transactions_view import  get_all_categories, getAllTransactions, get_accounts_list,get_last_five_months,getIncomeFiltered, getExpenseFiltered
-
 
 router = DefaultRouter()
 router.register("expenses", ExpenseViewSet, basename="expense")
@@ -16,6 +18,8 @@ urlpatterns = [
     path("",include(router.urls)),
 
     path("register/", RegisterView.as_view(), name="register"),
+    path("token/", TokenObtainPairView.as_view(), name="token_obtain_pair"),
+    path("token/refresh/", TokenObtainPairView.as_view(), name="token_refresh"),
 
     path("dashboard/total-balance/", total_balance, name="total_balance"),
     path("dashboard/monthly_income/", monthly_income, name="monthly_income"),
