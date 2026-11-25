@@ -1,4 +1,5 @@
 import datetime
+import calendar
 from datetime import datetime
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import IsAuthenticated
@@ -231,10 +232,8 @@ def getAllTransactions(request):
          "oldest": "date",
          "↑ Price": "-amount",
          "↓ Price": "amount"
-
     }
-
-
+    
     transactions = incomes.union(
         expenses,
         all=True
@@ -264,24 +263,21 @@ def get_accounts_list(request):
 @api_view(["GET"])
 @permission_classes([IsAuthenticated])
 def get_last_five_months(request):
-    month_names = (
-        "January 2026", "February 2026", "March 2026", "April 2026", "May 2026", "June 2026","July 2026", "August 2026","September 2026","October 2026", "November 2026", "December 2026",
-    )
-
     today = timezone.localdate()
-    year = today.year
-    month = today.month
+
     last_five_months = []
 
     for offset in range(4, -1, -1):
-        month_index = month - offset
-        month_year = year
+        month_index = today.month - offset
+        month_year = today.year
 
-        if month_index < 1:
+        while month_index < 1:
             month_index += 12
             month_year -= 1
 
-        last_five_months.append(month_names[month_index - 1])
+        last_five_months.append(
+            f"{calendar.month_name[month_index]} {month_year}"
+        )
         
     return Response({"last_five_months": last_five_months[::-1]})
 
