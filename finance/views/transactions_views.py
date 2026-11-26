@@ -14,11 +14,15 @@ from django.utils import timezone
 def getIncomeFiltered(request):
 
     periods = request.query_params.get("periods")
+    account = request.query_params.get("account")
 
     incomes = Income.objects.filter(
         user=request.user,
         deleted_at__isnull=True
     )
+
+    if account:
+            incomes = incomes.filter(account__name=account)
 
     if periods:
         period_filters = Q()
@@ -60,11 +64,15 @@ def getIncomeFiltered(request):
 def getExpenseFiltered(request):
 
     periods = request.query_params.get("periods")
+    account = request.query_params.get("account")
 
     expenses = Expense.objects.filter(
         user=request.user,
         deleted_at__isnull=True
     )
+
+    if account:
+            expenses = expenses.filter(account__name=account)
 
     if periods:
         period_filters = Q()

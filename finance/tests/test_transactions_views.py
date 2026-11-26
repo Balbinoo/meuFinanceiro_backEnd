@@ -8,7 +8,6 @@ from finance.models import Account, Income, Expense, Goal
 
 User = get_user_model()
 
-
 @pytest.mark.django_db
 class TestGetAllTransactions:
     def setup_method(self):
@@ -680,7 +679,7 @@ class TestGetLastFiveMonths:
     def test_deve_retornar_last_five_months_correto(self, monkeypatch):
         # Simula novembro de 2026
         monkeypatch.setattr(
-            "finance.views.transactions_view.timezone.localdate",
+            "finance.views.transactions_views.timezone.localdate",
             lambda: date(2026, 11, 25)
         )
 
@@ -701,7 +700,7 @@ class TestGetLastFiveMonths:
     def test_deve_funcionar_na_virada_do_ano(self, monkeypatch):
         # Simula janeiro de 2027
         monkeypatch.setattr(
-            "finance.views.transactions_view.timezone.localdate",
+            "finance.views.transactions_views.timezone.localdate",
             lambda: date(2027, 1, 15)
         )
 
