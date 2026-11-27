@@ -1,14 +1,11 @@
 import datetime
-import calendar
 from datetime import datetime
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
-from rest_framework.pagination import PageNumberPagination
 from django.db.models.functions import Coalesce
-from django.db.models import Q, F, Value, CharField, Sum, Count
-from ..models import Account, Income, Expense
-from django.utils import timezone
+from django.db.models import Q , Sum, Count
+from ..models import Account, Expense
 from django.db.models import DecimalField
 from decimal import Decimal
 
