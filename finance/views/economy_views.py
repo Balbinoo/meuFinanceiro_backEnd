@@ -37,6 +37,61 @@ def get_total_balance_filtered(request):
 
 @api_view(["GET"])
 @permission_classes([IsAuthenticated])
+def get_top_expenses(request):
+    account = request.query_params.get("account")
+    periods = request.query_params.get("periods")
+
+    expenses = Expense.objects.filter(
+        user=request.user,
+        deleted_at__isnull=True,
+    ).exclude(store="").exclude(store__isnull=True)
+
+    # Filtro por conta
+    if account:
+        expenses = expenses.filter(account__name=account)
+
+    # Filtro por períodos
+    if periods:
+        period_filters = Q()
+
+        try:
+            for selected_period in periods.split(","):
+                selected_date = datetime.strptime(
+                    selected_period.strip(),
+                    "%B %Y",
+                )
+
+                period_filters |= Q(
+                    date__year=selected_date.year,
+                    date__month=selected_date.month,
+                )
+
+            expenses = expenses.filter(period_filters)
+
+        except ValueError:
+            return Response(
+                {"error": "Invalid period. Use Month YYYY."},
+                status=400,
+            )
+
+    # Agrupamento por estabelecimento e categoria
+    top_expenses = (
+        expenses
+        .values("store", "category")
+        .annotate(
+            total_amount=Sum("amount"),
+            frequency=Count("id"),
+        )
+        .order_by("-total_amount")[:5]
+    )
+
+    return Response({
+        "top_expenses": list(top_expenses)
+    })
+
+
+@api_view(["GET"])
+@permission_classes([IsAuthenticated])
 def get_expense_categories_filter(request):
     account = request.query_params.get("account")
     periods = request.query_params.get("periods")

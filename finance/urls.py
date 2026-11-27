@@ -6,7 +6,7 @@ from django.urls import path, include
 from finance.views.dashboard_views import last_monthly_expense, last_monthly_income
 from .views._init_ import ExpenseViewSet, IncomeViewSet, GoalViewSet, AccountViewSet, UserViewSet, RegisterView, total_balance, monthly_income, monthly_expense, monthly_summary, expense_categories, recent_transactions, goals,total_accounts,user_name
 from finance.views.transactions_views import  get_all_categories, getAllTransactions, get_accounts_list,get_last_five_months,getIncomeFiltered, getExpenseFiltered
-from finance.views.economy_views import get_expense_categories_filter, get_total_balance_filtered
+from finance.views.economy_views import get_expense_categories_filter, get_total_balance_filtered, get_top_expenses
 
 router = DefaultRouter()
 router.register("expenses", ExpenseViewSet, basename="expense")
@@ -43,4 +43,6 @@ urlpatterns = [
 
     path("economy/balance_filtered/", get_total_balance_filtered, name="total_balance_filtered"),
     path("economy/expense_categories/",get_expense_categories_filter, name="get_expense_categories_filter"),
+    path("economy/top_expenses/",get_top_expenses, name="get_top_expenses"),
+
 ]
